@@ -20,7 +20,7 @@ const studentSchema = new Schema({
             validator: (email) => {
                 return valid.isEmail(email)
             },
-            message: `${email} is not valid email`
+            message: `provided email is not valid email`
         },
         required: true
     },

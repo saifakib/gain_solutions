@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 
 //imported file
 const { useMorgan } = require('./middleware')
+const setRoutes = require('./routes')
 
 
 
@@ -19,15 +20,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
+//routes
+setRoutes(app)
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.status(200).json({
         msg: 'Home'
     })
 })
-
-//routes
-
 
 //Error Handling
 app.use((req, res, next) => {
