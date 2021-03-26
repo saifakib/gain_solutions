@@ -5,8 +5,9 @@
 const router = require('express').Router()
 const { subjectController } = require('../controller')
 
-const { 
+const {
     getAllSubjectController,
+    getSingleSubjectController,
     subjectAddPostController,
     subjectUpdateController,
     assingSubjectToStudents,
@@ -14,6 +15,7 @@ const {
 } = subjectController
 
 router.get('/', getAllSubjectController)
+router.get('/:id', getSingleSubjectController)
 router.post('/add', subjectAddPostController)
 router.put('/update/:id', subjectUpdateController)
 router.patch('/assign/:id', assingSubjectToStudents)

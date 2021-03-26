@@ -14,6 +14,16 @@ exports.getAllStudentController = async (req, res) => {
     }
 }
 
+exports.getSingleStudentController = async( req, res) => {
+    const _id = req.params.id;
+    try{
+        const student = await Student.find({_id})
+        res.status(200).json(student)
+    } catch (e) {
+        res.status(501).json(e)
+    }
+}
+
 exports.studentAddPostController = async (req, res) => {
     const { name, email, phone, dateOfBirth } = req.body;
 
