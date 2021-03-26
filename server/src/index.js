@@ -9,7 +9,6 @@ const { useMorgan } = require('./middleware')
 const setRoutes = require('./routes')
 
 
-
 const app = express()
 
 
@@ -23,11 +22,6 @@ app.use(express.json())
 //routes
 setRoutes(app)
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        msg: 'Home'
-    })
-})
 
 //Error Handling
 app.use((req, res, next) => {

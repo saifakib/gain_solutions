@@ -14,6 +14,16 @@ exports.getAllSubjectController = async (req, res) => {
     }
 }
 
+exports.getSingleSubjectController = async( req, res) => {
+    const _id = req.params.id;
+    try{
+        const subject = await Subject.find({_id})
+        res.status(200).json(subject)
+    } catch (e) {
+        res.status(501).json(e)
+    }
+}
+
 exports.subjectAddPostController = async (req, res) => {
     const { name } = req.body;
 
